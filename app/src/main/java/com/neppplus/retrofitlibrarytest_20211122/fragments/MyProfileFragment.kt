@@ -61,6 +61,21 @@ class MyProfileFragment : BaseFragment() {
                     binding.txtNickname.text = br.data.user.nickname
                     Glide.with(mContext).load(br.data.user.profileImageURL).into(binding.imgProfile)
 
+                    when(GlobalData.loginUser!!.provider){
+                        "facebook" -> {
+                            binding.imgProvider.setImageResource(R.drawable.facebook_logo)
+                            binding.imgProvider.visibility
+                        }
+                        "kakao" -> {
+                            binding.imgProvider.setImageResource(R.drawable.kakao_logo)
+                            binding.imgProvider.visibility
+                        }
+                        else -> {
+                            binding.imgProvider.visibility = View.GONE
+                        }
+
+                    }
+
 
                 }
 
