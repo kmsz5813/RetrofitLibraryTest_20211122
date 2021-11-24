@@ -15,6 +15,7 @@ import com.kakao.sdk.user.UserApiClient
 import com.neppplus.retrofitlibrarytest_20211122.databinding.ActivityLoginBinding
 import com.neppplus.retrofitlibrarytest_20211122.datas.BasicResponse
 import com.neppplus.retrofitlibrarytest_20211122.utils.ContextUtil
+import com.neppplus.retrofitlibrarytest_20211122.utils.GlobalData
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -125,6 +126,9 @@ class LoginActivity : BaseActivity() {
 
                         ContextUtil.setToken(mContext,  basicResponse.data.token)
 
+//                        로그인한 사람이 누군지 데이터 세팅.
+                        GlobalData.loginUser = basicResponse.data.user
+
                         val myIntent = Intent(mContext, MainActivity::class.java)
                         startActivity(myIntent)
 
@@ -198,6 +202,8 @@ class LoginActivity : BaseActivity() {
                                     Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다!", Toast.LENGTH_SHORT).show()
 
                                     ContextUtil.setToken(mContext, br.data.token)
+
+                                    GlobalData.loginUser = br.data.user
 
                                     val myIntent = Intent(mContext, MainActivity::class.java)
                                     startActivity(myIntent)
@@ -289,6 +295,8 @@ class LoginActivity : BaseActivity() {
                             Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다!", Toast.LENGTH_SHORT).show()
 
                             ContextUtil.setToken(mContext, br.data.token)
+
+                            GlobalData.loginUser = br.data.user
 
                             val myIntent = Intent(mContext, MainActivity::class.java)
                             startActivity(myIntent)
