@@ -12,6 +12,7 @@ import com.neppplus.retrofitlibrarytest_20211122.R
 import com.neppplus.retrofitlibrarytest_20211122.databinding.FragmentMyProfileBinding
 import com.neppplus.retrofitlibrarytest_20211122.datas.BasicResponse
 import com.neppplus.retrofitlibrarytest_20211122.utils.ContextUtil
+import com.neppplus.retrofitlibrarytest_20211122.utils.GlobalData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,7 +42,11 @@ class MyProfileFragment : BaseFragment() {
 
     override fun setValues() {
 
-        getMyInfoFromServer()
+//        getMyInfoFromServer()
+
+        binding.txtNickname.text = GlobalData.loginUser!!.nickname
+        Glide.with(mContext).load(GlobalData.loginUser!!.profileImageURL).into(binding.imgProfile)
+
     }
 
     fun getMyInfoFromServer() {

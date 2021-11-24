@@ -10,6 +10,7 @@ import com.neppplus.retrofitlibrarytest_20211122.databinding.ActivitySplashBindi
 import com.neppplus.retrofitlibrarytest_20211122.datas.BasicResponse
 import com.neppplus.retrofitlibrarytest_20211122.datas.UserData
 import com.neppplus.retrofitlibrarytest_20211122.utils.ContextUtil
+import com.neppplus.retrofitlibrarytest_20211122.utils.GlobalData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,7 +32,8 @@ class SplashActivity : BaseActivity() {
 
     override fun setValues() {
 
-        var loginUser: UserData? = null
+
+
 
         apiService.getRequestMyInfo(ContextUtil.getToken(mContext)).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
@@ -39,7 +41,7 @@ class SplashActivity : BaseActivity() {
                 if (response.isSuccessful) {
 //                    올바른 토큰일때 -> loginUser에 파싱해서 객체 대입.
 
-                    loginUser =  response.body()!!.data.user
+                    GlobalData.loginUser =  response.body()!!.data.user
 
                 }
 
@@ -58,7 +60,7 @@ class SplashActivity : BaseActivity() {
 
             val myIntent: Intent
 
-           if ( loginUser != null ) {
+           if ( GlobalData.loginUser != null ) {
                myIntent = Intent(mContext, MainActivity::class.java)
            }
            else {
