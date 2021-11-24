@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.neppplus.retrofitlibrarytest_20211122.R
@@ -15,6 +17,7 @@ class ProductRecyclerAdapter(val mContext: Context, val mList: List<ProductData>
 
     inner class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
+        val rootLayout = view.findViewById<LinearLayout>(R.id.rootLayout)
         val imgStoreLogo = view.findViewById<ImageView>(R.id.imgStoreLogo)
         val imgProductImg = view.findViewById<ImageView>(R.id.imgProductImg)
         val txtStoreName = view.findViewById<TextView>(R.id.txtStoreName)
@@ -32,6 +35,11 @@ class ProductRecyclerAdapter(val mContext: Context, val mList: List<ProductData>
 //            39800 -> 39,800 형태로 가공해주자.  상품데이터에 가격을 가공해주는 함수를 추가해보자.
 
             txtProductPrice.text = data.getFormattedPrice()
+
+            rootLayout.setOnClickListener {
+
+                Toast.makeText(mContext, "${data.name} 상품 클릭됨", Toast.LENGTH_SHORT).show()
+            }
 
         }
 
