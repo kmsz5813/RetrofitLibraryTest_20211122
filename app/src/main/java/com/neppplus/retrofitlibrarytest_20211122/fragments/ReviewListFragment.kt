@@ -48,6 +48,32 @@ class ReviewListFragment : BaseFragment() {
 
     override fun setValues() {
 
+        getReviewListFromServer()
+
+    }
+
+    fun getReviewListFromServer() {
+
+        apiService.getRequestReview().enqueue(object : Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                if (response.isSuccessful){
+
+                    val br = response.body()!!
+
+                    mReviewList.clear()
+                    mReviewList.addAll(br.data.reviews)
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
+
     }
 
 
