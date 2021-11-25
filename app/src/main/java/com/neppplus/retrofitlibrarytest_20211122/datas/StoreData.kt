@@ -1,6 +1,7 @@
 package com.neppplus.retrofitlibrarytest_20211122.datas
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 class StoreData(
 
@@ -9,5 +10,5 @@ class StoreData(
     @SerializedName("logo_url")
     var logoURL : String,
 
-) {
+) : Serializable {
 }

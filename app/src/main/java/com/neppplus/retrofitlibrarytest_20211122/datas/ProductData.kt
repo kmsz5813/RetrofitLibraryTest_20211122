@@ -1,6 +1,7 @@
 package com.neppplus.retrofitlibrarytest_20211122.datas
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 import java.text.NumberFormat
 import java.util.*
 
@@ -18,7 +19,7 @@ class ProductData(
     var smallCategory : SmallCategoryData
 
 
-) {
+) : Serializable {
 
     fun getFormattedPrice() : String {
 
