@@ -3,6 +3,7 @@ package com.neppplus.retrofitlibrarytest_20211122
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import com.neppplus.retrofitlibrarytest_20211122.databinding.ActivityEditReviewBinding
 import com.neppplus.retrofitlibrarytest_20211122.datas.BasicResponse
@@ -13,12 +14,15 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class EditReviewActivity : BaseActivity() {
 
     lateinit var binding : ActivityEditReviewBinding
 
     lateinit var mProductData : ProductData
+
+    val mInputTagList = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +33,47 @@ class EditReviewActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+//        한글자 입력할때마다 -> 스페이스를 넣었는지 검사.
+
+        binding.edtTag.addTextChangedListener {
+
+            val nowText = it.toString()
+
+            if (nowText == "") {
+//                빈칸일때는 밑의 코드 실행X
+                return@addTextChangedListener
+            }
+
+            Log.d("입력값", nowText)
+
+//            지금 입력된 내용의 마지막 글자(char)가 ' ' 글자인가?
+
+           if (nowText.last() == ' ') {
+               Log.d("입력값", "스페이스가 들어옴")
+
+//               입력된값을 태그로 등록
+
+//               태그로 등록될문구 => " " 공백 제거
+               val tag = nowText.replace(" ", "")
+
+//               태그목록으로 추가해보자.
+               mInputTagList.add(tag)
+
+//               입력값 초기화
+               binding.edtTag.setText("")
+
+           }
+
+
+        }
+
         binding.btbWrite.setOnClickListener {
+
+            for (tag in mInputTagList){
+                Log.d("입력태그", tag)
+            }
+
+            return@setOnClickListener
 
             val inputTitle = binding.edtReviewTile.text.toString()
             val inputContent = binding.edtContent.text.toString()
