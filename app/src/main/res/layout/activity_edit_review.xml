@@ -13,7 +13,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:hint="리뷰 제목을 입력해주세요"/>
 
         <LinearLayout
