@@ -24,6 +24,12 @@
         android:text="평점 자리 (4.5)"/>
 
     <TextView
+        android:id="@+id/txtCreateAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="작성일시 (2021.11.25 오후 3:05)"/>
+
+    <TextView
         android:id="@+id/txtUserNickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
