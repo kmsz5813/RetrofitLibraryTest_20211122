@@ -5,13 +5,13 @@ import java.io.Serializable
 
 class ReviewData(
 
+    var id : Int,
     var title: String,
     var content : String,
-    var score: Int,
-    @SerializedName("user_id")
-    var userId : Int,
-    @SerializedName("product_id")
-    var productId : Int
+    var score: Double,
+    var user: UserData,
+    var product : ProductData
+
 
 ) : Serializable {
 
