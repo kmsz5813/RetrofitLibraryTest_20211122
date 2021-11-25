@@ -20,6 +20,7 @@
                 android:src="@mipmap/ic_launcher"/>
 
             <LinearLayout
+                android:id="@+id/btnEditNickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -38,6 +39,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="본인닉네임" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/edit_logo"
+                    android:layout_marginStart="5dp"/>
+
 
             </LinearLayout>
 
