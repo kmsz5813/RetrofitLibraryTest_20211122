@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/RetrofitLibraryTest_20211122-8/app/src/main/res/drawable/tag_box.xml" value="0.3764102564102564" />
         <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/RetrofitLibraryTest_20211122-8/app/src/main/res/layout/activity_edit_review.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/RetrofitLibraryTest_20211122-8/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/RetrofitLibraryTest_20211122-8/app/src/main/res/layout/activity_sign_up.xml" value="0.36614583333333334" />
@@ -14,6 +15,7 @@
         <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/RetrofitLibraryTest_20211122-8/app/src/main/res/layout/my_custom_alert_edit_nickname.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/RetrofitLibraryTest_20211122-8/app/src/main/res/layout/product_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/RetrofitLibraryTest_20211122-8/app/src/main/res/layout/review_list_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/RetrofitLibraryTest_20211122-8/app/src/main/res/layout/tag_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/RetrofitLibraryTest_20211122/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/RetrofitLibraryTest_20211122/app/src/main/res/layout/activity_main.xml" value="0.3515625" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/RetrofitLibraryTest_20211122/app/src/main/res/layout/activity_sign_up.xml" value="0.36614583333333334" />
