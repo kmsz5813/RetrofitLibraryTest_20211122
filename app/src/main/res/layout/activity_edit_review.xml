@@ -11,6 +11,7 @@
         tools:context=".EditReviewActivity">
 
         <EditText
+            android:id="@+id/edtReviewTile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="리뷰 제목을 입력해주세요"/>
@@ -68,6 +69,20 @@
 
 
         </LinearLayout>
+
+        <EditText
+            android:id="@+id/edtContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="5"
+            android:hint="리뷰 내용을 작성해주세요."
+            android:gravity="top"/>
+
+        <Button
+            android:id="@+id/btbWrite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="리뷰 작성"/>
 
 
 
