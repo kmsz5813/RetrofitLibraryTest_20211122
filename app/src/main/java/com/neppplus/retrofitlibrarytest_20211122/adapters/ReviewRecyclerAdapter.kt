@@ -26,6 +26,9 @@ class ReviewRecyclerAdapter(
             txtReviewTitle.text = data.title
             txtReviewContent.text = data.content
 
+            txtScore.text = data.score.toString()
+            txtUserNickname.text = data.user.nickname
+            txtProductName.text = data.product.name
 
 
         }
