@@ -17,6 +17,7 @@ import com.neppplus.retrofitlibrarytest_20211122.databinding.FragmentMyProfileBi
 import com.neppplus.retrofitlibrarytest_20211122.datas.BasicResponse
 import com.neppplus.retrofitlibrarytest_20211122.utils.ContextUtil
 import com.neppplus.retrofitlibrarytest_20211122.utils.GlobalData
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -62,7 +63,49 @@ class MyProfileFragment : BaseFragment() {
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
 
                 val inputNickname = edtNickname.text.toString()
-                Toast.makeText(mContext, inputNickname, Toast.LENGTH_SHORT).show()
+
+                apiService.patchRequestEditUserInfo("nickname", inputNickname).enqueue(object : Callback<BasicResponse>{
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+                        if (response.isSuccessful){
+
+                            val br = response.body()!!
+
+//                            토큰값 추출 -> 다시 저장.
+                            val token = br.data.token
+
+                            ContextUtil.setToken(mContext, token)
+
+                            Toast.makeText(mContext, "닉네임 변경에 성공했습니다.", Toast.LENGTH_SHORT).show()
+
+                            getMyInfoFromServer()
+
+
+                        }
+                        else {
+//                            닉네임 변경 실패 -> 중복 막는 경우.
+
+                            val jsonObj = JSONObject(response.errorBody()!!.string())
+                            Log.e("닉네임변경실패",jsonObj.toString())
+
+                            val message = jsonObj.getString("message")
+
+                            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+
+                        }
+
+                    }
+
+
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                    }
+
+
+                })
+
 
             })
             alert.setNegativeButton("취소", null)
