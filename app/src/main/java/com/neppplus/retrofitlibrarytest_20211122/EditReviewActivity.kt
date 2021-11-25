@@ -3,6 +3,7 @@ package com.neppplus.retrofitlibrarytest_20211122
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import com.neppplus.retrofitlibrarytest_20211122.databinding.ActivityEditReviewBinding
@@ -58,6 +59,13 @@ class EditReviewActivity : BaseActivity() {
 
 //               태그목록으로 추가해보자.
                mInputTagList.add(tag)
+
+//               태그 목록 보여줄 레이아웃에 텍스트뷰를 생성 => 코틀린에서 텍스트뷰 생성.
+
+               val tagTextView = TextView(mContext)
+               tagTextView.text = tag
+
+               binding.tagListLayout.addView(tagTextView)
 
 //               입력값 초기화
                binding.edtTag.setText("")
