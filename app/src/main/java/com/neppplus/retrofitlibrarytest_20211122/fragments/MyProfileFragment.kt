@@ -78,6 +78,9 @@ class MyProfileFragment : BaseFragment() {
 
                             ContextUtil.setToken(mContext, token)
 
+//                            로그인한 사용자 정보도 갱신
+                            GlobalData.loginUser = br.data.user
+
                             Toast.makeText(mContext, "닉네임 변경에 성공했습니다.", Toast.LENGTH_SHORT).show()
 
                             getMyInfoFromServer()
