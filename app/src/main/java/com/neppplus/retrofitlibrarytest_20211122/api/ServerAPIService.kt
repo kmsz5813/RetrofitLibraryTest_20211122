@@ -73,7 +73,7 @@ interface ServerAPIService {
         @Field("product_id") productId:Int,
         @Field("title") title: String,
         @Field("content") content: String,
-        @Field("socre") rating: Int
+        @Field("score") rating: Int
 
     ) : Call<BasicResponse>
 
