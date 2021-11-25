@@ -2,6 +2,7 @@ package com.neppplus.retrofitlibrarytest_20211122.datas
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+import java.util.*
 
 class UserData(
 
@@ -13,7 +14,9 @@ class UserData(
     @SerializedName("nick_name")
     var nickname: String,
     @SerializedName("profile_img")
-    var profileImageURL: String
+    var profileImageURL: String,
+    @SerializedName("created_at")
+    var createdAt: Date,
 
 ) : Serializable {
 }
