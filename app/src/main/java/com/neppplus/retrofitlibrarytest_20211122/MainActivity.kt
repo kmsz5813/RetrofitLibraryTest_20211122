@@ -1,6 +1,5 @@
 package com.neppplus.retrofitlibrarytest_20211122
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.neppplus.retrofitlibrarytest_20211122.adapters.MainViewPagerAdapter
