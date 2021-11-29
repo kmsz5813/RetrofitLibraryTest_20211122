@@ -1,5 +1,6 @@
 package com.neppplus.retrofitlibrarytest_20211122.fragments
 
+import android.Manifest
 import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
@@ -14,6 +15,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.normal.TedPermission
 import com.neppplus.retrofitlibrarytest_20211122.R
 import com.neppplus.retrofitlibrarytest_20211122.databinding.FragmentMyProfileBinding
 import com.neppplus.retrofitlibrarytest_20211122.datas.BasicResponse
@@ -65,7 +68,6 @@ class MyProfileFragment : BaseFragment() {
                 val file = File( URIPathHelper().getPath(mContext, selectedImageUri) )
 
 
-
             }
         }
 
@@ -75,12 +77,34 @@ class MyProfileFragment : BaseFragment() {
 
         binding.imgProfile.setOnClickListener {
 
-//            갤러리 (안드로이드 제공) 로 사진 가지러 이동 (왕복 이동).
+//            실제 파일 경로 읽는 권한 필요. (업로드가 가능해짐)
 
-            val myIntent = Intent()
-            myIntent.action = Intent.ACTION_PICK
-            myIntent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
-            startActivityForResult( myIntent, REQ_FOR_GALLERY )
+            val pl = object : PermissionListener {
+                override fun onPermissionGranted() {
+
+//                                갤러리 (안드로이드 제공) 로 사진 가지러 이동 (왕복 이동).
+
+                    val myIntent = Intent()
+                    myIntent.action = Intent.ACTION_PICK
+                    myIntent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
+                    startActivityForResult( myIntent, REQ_FOR_GALLERY )
+
+                }
+
+                override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
+                    Toast.makeText(mContext, "갤러리 조회권한이 없습니다.", Toast.LENGTH_SHORT).show()
+
+                }
+
+
+            }
+
+            TedPermission.create()
+                .setPermissionListener(pl)
+                .setPermissions( Manifest.permission.READ_EXTERNAL_STORAGE )
+                .check()
+
+
 
         }
 
