@@ -30,5 +30,7 @@ class MainActivity : BaseActivity() {
         binding.mainTabLayout.setupWithViewPager( binding.mainViewPager )
 
 
+
+
     }
 }
