@@ -38,7 +38,7 @@ class MainActivity : BaseActivity() {
 //                페이지 선택이 완료 되었을때.
 
 //                바텀네비게이션바의 position 에 맞는 메뉴를 클릭.
-                binding.mainBottomNaviView.menu.getItem(position).isChecked = true
+
 
             }
 
@@ -50,7 +50,18 @@ class MainActivity : BaseActivity() {
 
         })
 
+        binding.mainBottomNaviView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.home -> binding.mainViewPager.currentItem = 0
+                R.id.ranking -> binding.mainViewPager.currentItem = 1
+                R.id.myProfile -> binding.mainViewPager.currentItem = 2
+
+            }
+            return@setOnItemSelectedListener true
+        }
+
 //        2. 바텀네비게이션 클릭 => 뷰페이저 페이지 이동
+
 
     }
 
@@ -58,6 +69,9 @@ class MainActivity : BaseActivity() {
 
         mvpa = MainViewPagerAdapter( supportFragmentManager )
         binding.mainViewPager.adapter = mvpa
+
+//        뷰페이저가 3장의 프래그먼트를 계속 메모리에 유지시키게 하자.
+        binding.mainViewPager.offscreenPageLimit = 3
 
         binding.mainTabLayout.setupWithViewPager( binding.mainViewPager )
 
