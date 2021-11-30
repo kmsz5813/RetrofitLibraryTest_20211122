@@ -11,5 +11,7 @@ class DataResponse(
 
     var reviews : List<ReviewData>
 
+    var banners : List<BannerData>
+
 ) {
 }
