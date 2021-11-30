@@ -5,10 +5,9 @@
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:src="@mipmap/ic_launcher"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/bannerViewPager"
         android:layout_width="match_parent"
-        android:scaleType="centerCrop"
         android:layout_height="200dp"/>
 
     <LinearLayout
@@ -32,6 +31,7 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgCategory1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@mipmap/ic_launcher"/>
