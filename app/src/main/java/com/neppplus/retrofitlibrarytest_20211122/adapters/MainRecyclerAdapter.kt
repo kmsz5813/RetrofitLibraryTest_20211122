@@ -10,22 +10,33 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
+import com.neppplus.retrofitlibrarytest_20211122.MainActivity
 import com.neppplus.retrofitlibrarytest_20211122.R
+import com.neppplus.retrofitlibrarytest_20211122.datas.BannerData
 import com.neppplus.retrofitlibrarytest_20211122.datas.ReviewData
 
 class MainRecyclerAdapter(val mContext: Context, val mList: List<ReviewData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+//    화면 상단에 보여줄 배너목록을 담고있는 ArrayList
+    val mBannerList = ArrayList<BannerData>()
+
 //    2가지 viewholder 필요함. => 0번칸 : 상단부(Header) xml / 나머지(item)칸 : 리뷰모양 xml
 
     inner class HeaderViewHolder(row: View) : RecyclerView.ViewHolder(row) {
+
 
         val imgCategory1 = row.findViewById<ImageView>(R.id.imgCategory1)
         val bannerViewPager = row.findViewById<ViewPager>(R.id.bannerViewPager)
 
         fun bind() {
 
-//            bannerViewPager.adapter = ?
+//            배너 페이지 어댑터를 생성
+//            1. fm (FragmentManager) => 화면 mContext (Context) -> MainActivity로 변신 -> supportFragmentManager
+//            2. bannerList => Fragment에서 -> 배너 목록 API 호출 -> 파싱된것을 받아오자.
+            val bannerViewPagerAdapter = BannerViewPagerAdapter( (mContext as MainActivity).supportFragmentManager,mBannerList )
+
+            bannerViewPager.adapter = bannerViewPagerAdapter
 
             imgCategory1.setOnClickListener {
                 Toast.makeText(mContext, "1번카테고리 눌림", Toast.LENGTH_SHORT).show()
