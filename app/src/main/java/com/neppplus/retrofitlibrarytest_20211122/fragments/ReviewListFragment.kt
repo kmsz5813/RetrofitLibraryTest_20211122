@@ -47,6 +47,8 @@ class ReviewListFragment : BaseFragment() {
 
     override fun setupEvents() {
 
+
+
     }
 
     override fun setValues() {
