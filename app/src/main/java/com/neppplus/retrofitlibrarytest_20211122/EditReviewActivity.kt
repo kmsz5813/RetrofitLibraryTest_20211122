@@ -19,11 +19,14 @@ import com.neppplus.retrofitlibrarytest_20211122.databinding.ActivityEditReviewB
 import com.neppplus.retrofitlibrarytest_20211122.datas.BasicResponse
 import com.neppplus.retrofitlibrarytest_20211122.datas.ProductData
 import com.neppplus.retrofitlibrarytest_20211122.utils.GlobalData
+import com.neppplus.retrofitlibrarytest_20211122.utils.URIPathHelper
 import okhttp3.MediaType
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -170,9 +173,19 @@ class EditReviewActivity : BaseActivity() {
             params.put("scor", scoreBody)
             params.put("tag_list", tagListBody)
 
+//            썸네일그림 데이터 첨부
+
+//            보내줄 그림파일 꺼내오기
+            val file = File( URIPathHelper().getPath(mContext, mSelectedThumbnailUri!!) )
+//            그림파일 -> 첨부할 수 있는 형태로 가공
+            val fileReqBody = RequestBody.create( MediaType.parse("image/*"),file )
+
+//            어느 이름표로 보낼지
+            val thumbnailImageBody = MultipartBody.Part.createFormData("thumbnail_img", "thumbnail.jpg", fileReqBody)
 
             apiService.postRequestReview(
                 params,
+                thumbnailImageBody
 //                2. 이미지 등 파일 : Multopart.part
             ).enqueue(object : Callback<BasicResponse>{
                 override fun onResponse(
