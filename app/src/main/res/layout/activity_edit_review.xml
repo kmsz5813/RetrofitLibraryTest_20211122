@@ -10,6 +10,28 @@
         android:orientation="vertical"
         tools:context=".EditReviewActivity">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtEmptyImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="여기를 눌러서 리뷰 대표 사진을 첨부하세요."/>
+
+            <ImageView
+                android:id="@+id/imgSeleceted"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                android:src="@mipmap/ic_launcher"/>
+
+        </LinearLayout>
+
         <EditText
             android:id="@+id/edtReviewTile"
             android:layout_width="match_parent"
