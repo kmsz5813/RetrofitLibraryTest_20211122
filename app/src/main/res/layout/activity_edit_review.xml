@@ -6,130 +6,140 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
         android:orientation="vertical"
         tools:context=".EditReviewActivity">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/txtEmptyImg"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="여기를 눌러서 리뷰 대표 사진을 첨부하세요."/>
-
-            <ImageView
-                android:id="@+id/imgSeleceted"
-                android:scaleType="centerCrop"
-                android:layout_width="match_parent"
-                android:visibility="gone"
-                android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"/>
-
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/edtReviewTile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="리뷰 제목을 입력해주세요"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/txtUserNickname"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="본인 닉네임"/>
+                android:orientation="vertical"
+                android:padding="20dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="작성일시"/>
+                    <TextView
+                        android:id="@+id/txtEmptyImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="여기를 눌러서 리뷰 대표 사진을 첨부하세요."/>
 
-            <TextView
-                android:id="@+id/txtToday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2021.11.25"/>
+                    <ImageView
+                        android:id="@+id/imgSeleceted"
+                        android:scaleType="centerCrop"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/ic_launcher"/>
 
+                </LinearLayout>
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/edtReviewTile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="리뷰 제목을 입력해주세요"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="15sp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtProductName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="상품명 자리"/>
+                    <TextView
+                        android:id="@+id/txtUserNickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="본인 닉네임"/>
 
-            <hyogeun.github.com.colorratingbarlib.ColorRatingBar
-                android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:rating="3"
-                app:empty_color="@color/black"
-                app:progress_color="@color/red"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="작성일시"/>
 
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/edtContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minLines="5"
-            android:hint="리뷰 내용을 작성해주세요."
-            android:gravity="top"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="# 키워드 입력하기"/>
-
-        <EditText
-            android:id="@+id/edtTag"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="스페이스바를 누르면 하나의 태그로 입력됩니다."
-            android:singleLine="true"/>
-
-        <com.nex3z.flowlayout.FlowLayout
-            android:id="@+id/tagListLayout"
-            android:layout_width="match_parent"
-            app:flRowSpacing="5dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/txtToday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2021.11.25"/>
 
 
-        </com.nex3z.flowlayout.FlowLayout>
+                </LinearLayout>
 
-        <Button
-            android:id="@+id/btbWrite"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="리뷰 작성"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="15sp">
+
+                    <TextView
+                        android:id="@+id/txtProductName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="상품명 자리"/>
+
+                    <hyogeun.github.com.colorratingbarlib.ColorRatingBar
+                        android:id="@+id/ratingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:rating="3"
+                        app:empty_color="@color/black"
+                        app:progress_color="@color/red"/>
 
 
+                </LinearLayout>
 
+                <EditText
+                    android:id="@+id/edtContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minLines="5"
+                    android:hint="리뷰 내용을 작성해주세요."
+                    android:gravity="top"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="# 키워드 입력하기"/>
+
+                <EditText
+                    android:id="@+id/edtTag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="스페이스바를 누르면 하나의 태그로 입력됩니다."
+                    android:singleLine="true"/>
+
+                <com.nex3z.flowlayout.FlowLayout
+                    android:id="@+id/tagListLayout"
+                    android:layout_width="match_parent"
+                    app:flRowSpacing="5dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                </com.nex3z.flowlayout.FlowLayout>
+
+                <Button
+                    android:id="@+id/btbWrite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="리뷰 작성"/>
+
+            </LinearLayout>
+
+        </ScrollView>
 
 
 
