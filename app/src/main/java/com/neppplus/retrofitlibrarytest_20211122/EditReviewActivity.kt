@@ -27,6 +27,7 @@ import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class EditReviewActivity : BaseActivity() {
 
@@ -162,9 +163,16 @@ class EditReviewActivity : BaseActivity() {
             val scoreBody = RequestBody.create(MediaType.parse("text/plain"), rating.toString() )
             val tagListBody = RequestBody.create(MediaType.parse("text/plain"), tagStr )
 
+            val params = HashMap<String, RequestBody>()
+            params.put("product_id", productIdBody)
+            params.put("title", titleBody)
+            params.put("content", contentBody)
+            params.put("scor", scoreBody)
+            params.put("tag_list", tagListBody)
+
 
             apiService.postRequestReview(
-//                1. 일반
+                params,
 //                2. 이미지 등 파일 : Multopart.part
             ).enqueue(object : Callback<BasicResponse>{
                 override fun onResponse(
